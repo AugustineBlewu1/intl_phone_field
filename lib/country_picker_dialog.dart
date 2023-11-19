@@ -24,20 +24,21 @@ class PickerDialogStyle {
 
   final double? width;
   final ShapeBorder? shape;
+  final Clip? clip;
 
-  PickerDialogStyle({
-    this.backgroundColor,
-    this.countryCodeStyle,
-    this.countryNameStyle,
-    this.listTileDivider,
-    this.listTilePadding,
-    this.padding,
-    this.searchFieldCursorColor,
-    this.searchFieldInputDecoration,
-    this.searchFieldPadding,
-    this.width,
-    this.shape
-  });
+  PickerDialogStyle(
+      {this.backgroundColor,
+      this.countryCodeStyle,
+      this.countryNameStyle,
+      this.listTileDivider,
+      this.listTilePadding,
+      this.padding,
+      this.searchFieldCursorColor,
+      this.searchFieldInputDecoration,
+      this.searchFieldPadding,
+      this.width,
+      this.clip,
+      this.shape});
 }
 
 class CountryPickerDialog extends StatefulWidget {
@@ -93,6 +94,7 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
               : defaultHorizontalPadding),
       backgroundColor: widget.style?.backgroundColor,
       shape: widget.style?.shape,
+      clipBehavior: widget.style?.clip ?? Clip.none,
       child: Container(
         padding: widget.style?.padding ?? const EdgeInsets.all(10),
         child: Column(
